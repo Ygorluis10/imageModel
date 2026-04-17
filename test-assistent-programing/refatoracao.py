@@ -1,20 +1,29 @@
-def c(l):
-    t=0
-    for i in range(len(l)):
-        t=t+l[i]
-    m=t/len(l)
-    mx=l[0]
-    mn=l[0]
-    for i in range(len(l)):
-        if l[i]>mx:
-            mx=l[i]
-        if l[i]<mn:
-            mn=l[i]
-    return t,m,mx,mn
+def calcular_estatisticas(lista):
+    """
+    Calcula o total, média, valor máximo e mínimo de uma lista de números.
 
-x=[23,7,45,2,67,12,89,34,56,11]
-a,b,c2,d=c(x)
-print("total:",a)
-print("media:",b)
-print("maior:",c2)
-print("menor:",d)
+    Args:
+        lista (list): Lista de números.
+
+    Returns:
+        tuple: (total, media, maximo, minimo)
+    """
+    if not lista:
+        raise ValueError("A lista não pode estar vazia.")
+
+    total = sum(lista)
+    media = total / len(lista)
+    maximo = max(lista)
+    minimo = min(lista)
+
+    return total, media, maximo, minimo
+
+
+# Exemplo de uso
+numeros = [23, 7, 45, 2, 67, 12, 89, 34, 56, 11]
+total, media, maior, menor = calcular_estatisticas(numeros)
+
+print(f"Total: {total}")
+print(f"Média: {media:.2f}")
+print(f"Maior: {maior}")
+print(f"Menor: {menor}")
